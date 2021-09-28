@@ -1,9 +1,10 @@
 import { useState } from "react"
 import {AiOutlineCheck} from "react-icons/ai"
 const Skills=()=>{
-
+    
     const [data,setdata]=useState([])
     const [input,setinput]=useState("")
+    const [flag,setflag]=useState(false)
 
 
     const handelChange=(e)=>{
@@ -12,8 +13,10 @@ const Skills=()=>{
 
     const handelSubmit=(e)=>{
         e.preventDefault()
-        setdata([...data,input])
+        if(input==""){setflag(true)}
+        else{setdata([...data,input])
         setinput("")
+        setflag(false)}
     }
 
     return (
@@ -26,6 +29,7 @@ const Skills=()=>{
             <form onSubmit={handelSubmit} >            
                 <input type="text" placeholder="Enter Skills" value={input} onChange={handelChange} ></input>
                 <button onClick={handelSubmit} >Add</button>
+                {flag && <p style={{color:"red"}} >Please enter skills</p>}
             </form>
         </div>
     )
