@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {AiOutlineCheck} from "react-icons/ai"
 const Skills=()=>{
 
     const [data,setdata]=useState([])
@@ -17,9 +18,9 @@ const Skills=()=>{
 
     return (
         <div style={{textAlign:"center"}} >
-            <div style={{textAlign:"center",width:"200px",display:"grid",gridTemplateColumns:"auto auto auto",position:"relative",left:"575px"}} >
+            <div style={{textAlign:"center",width:"250px",display:"grid",gridTemplateColumns:"auto auto auto",position:"relative",left:"575px"}} >
                 {data.map((ele,i)=>{
-                    return <button key={i} >{ele}</button>
+                    return <button key={i} style={{borderRadius:"10px",background:"green",color:"white"}}>{ele}<AiOutlineCheck/></button>
                 })}
             </div>
             <form onSubmit={handelSubmit} >            
